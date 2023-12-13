@@ -31,4 +31,5 @@ Route::get('barang', [MasterController::class, 'barang']);
 
 // Barang
 Route::post('barang/input', [MasterController::class, 'inputBarang']);
+Route::post('barang/saveEdit', [MasterController::class, 'saveBarang']);
 

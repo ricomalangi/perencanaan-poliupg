@@ -96,8 +96,9 @@
                             <i class="fa fa-times-circle" aria-hidden="true"></i>
                         </button>
                     </div>
-                    <form action="#" method="post" enctype="multipart/form-data">
+                    <form action="{{url('barang/saveEdit')}}" method="post" enctype="multipart/form-data">
                         @csrf
+                        <input type="text" hidden name="id" id="data_id_edit">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nama_barang">Nama Barang</label>
@@ -125,16 +126,45 @@
                                     <input name="h_max" type="number" min="1" class="form-control no-spinners" id="harga_max_edit" placeholder="Maksimal">
                                 </div>
                             </div>
-                            <!-- <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="contoh">
-                                <label class="form-check-label" for="contoh">Contohhhhhhhhhhhhhhhhhhh</label>
-                            </div> -->
                         </div>
-                        <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" onclick="clearForm()">Reset</button>
+                        <div class="modal-footer justify-content-end">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="delete_alert" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h5 class="modal-title" id="staticBackdropLabel">Apakah Anda yakin ingin menghapus data tersebut?</h5>
+                        <h6 class="modal-title" id="staticBackdropLabel">Data yang telah dihapus tidak dapat dikembalikan.</h6>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-danger" id="deleteConfirmButton" onclick="doDelete(this.value)" data-dismiss="modal">Hapus</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast -->
+        <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+            <div class="toast" id="myToast" style="position: absolute; top: 0; right: 0;">
+                <div class="toast-header">
+                    <img src="..." class="rounded mr-2" alt="...">
+                    <strong class="mr-auto">Bootstrap</strong>
+                    <small>11 mins ago</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    Hello, world! This is a toast message.
                 </div>
             </div>
         </div>
@@ -153,7 +183,9 @@
                     <td>${row.harga_max}</td>
                     <td>
                         <button type="button" value="${row.id}" data-id="${row.id}" class="btn btn-secondary edit" data-toggle="modal" data-target="#edit_data">Edit</button>
-                        <button type="button" value="${row.id}" class="btn btn-danger">Hapus</button>
+                        <button type="button" value="${row.id}" data-id="${row.id}" class="btn btn-danger delete-button" data-toggle="modal" data-target="#delete_alert">
+                            Hapus
+                        </button>
                     </td>
                 `;
                 tableBody.appendChild(rowData)
@@ -171,12 +203,15 @@
             document.getElementById('harga_max').value = '';
         }
 
-
         document.addEventListener("DOMContentLoaded", (event) => {
             $(document).on('click', '.edit', function() {
                 let id = $(this).data('id')
                 let url = "{{ url('api/barang/getData?id=') }}"
                 fetchData(url, id)
+            });
+
+            $(document).on('click', '.delete-button', function() {
+                document.getElementById('deleteConfirmButton').value = $(this).data('id')
             });
         });
     </script>

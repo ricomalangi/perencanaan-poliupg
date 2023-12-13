@@ -56,4 +56,34 @@ class MasterController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+
+    public function saveBarang(Request $request)
+    {
+        try {
+            $request->validate([
+                'id' => 'required',
+                'nama_barang' => 'required',
+                'satuan' => 'required',
+                'h_min' => 'required',
+                'h_max' => 'required',
+            ]);
+
+            $barang = Barang::find($request->id);
+
+            if ($barang) {
+                $barang->nama_barang = $request->nama_barang;
+                $barang->satuan = $request->satuan;
+                $barang->harga_min = $request->h_min;
+                $barang->harga_max = $request->h_max;
+
+                $barang->save();
+
+                return redirect()->back()->with('success', 'Data Berhasil Diperbarui.');
+            } else {
+                return redirect()->back()->with('error', 'Data Barang Tidak Ditemukan.');
+            }
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
+    }
 }
