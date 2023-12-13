@@ -26,3 +26,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('dashboard', [UhomeController::class, 'index'])->middleware('auth');
 Route::get('dashboard', [MasterController::class, 'dashboard']);
 Route::get('barang', [MasterController::class, 'barang']);
+
+
+
+// Barang
+Route::post('barang/input', [MasterController::class, 'inputBarang']);
+

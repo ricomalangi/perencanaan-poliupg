@@ -9,18 +9,8 @@
                     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#add_data">Tambah</button>
                 </div>
             </div>
-            <!-- <h3 class="card-title mb-0 text-bold">Data Barang</h3>
-            <div class="card-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-default">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </div> -->
         </div>
+
 
 
         <div class="card-body">
@@ -52,17 +42,17 @@
                             <i class="fa fa-times-circle" aria-hidden="true"></i>
                         </button>
                     </div>
-                    <form action="" method="post">
+                    <form action="{{url('barang/input')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nama_barang">Nama Barang</label>
-                                <input type="text" class="form-control" id="nama_barang" placeholder="Nama Barang">
+                                <input name="nama_barang" type="text" class="form-control" id="nama_barang" placeholder="Nama Barang">
                                 <!-- <small id="nama_barang_hint" class="form-text text-muted">Ini contoh hint broo</small> -->
                             </div>
                             <div class="form-group">
                                 <label for="satuan">Satuan</label>
-                                <input type="text" class="form-control" id="satuan" placeholder="Satuan Barang">
+                                <input name="satuan" type="text" class="form-control" id="satuan" placeholder="Satuan Barang">
                             </div>
                             <div class="form-group">
                                 <label for="harga_min">Harga Minimal</label>
@@ -70,7 +60,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">Rp.</div>
                                     </div>
-                                    <input type="number" min="1" class="form-control no-spinners" id="harga_min" placeholder="Minimal">
+                                    <input name="h_min" type="number" min="1" class="form-control no-spinners" id="harga_min" placeholder="Minimal">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -79,13 +69,66 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">Rp.</div>
                                     </div>
-                                    <input type="number" min="1" class="form-control no-spinners" id="harga_max" placeholder="Maksimal">
+                                    <input name="h_max" type="number" min="1" class="form-control no-spinners" id="harga_max" placeholder="Maksimal">
                                 </div>
                             </div>
-                            <div class="form-check">
+                            <!-- <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="contoh">
                                 <label class="form-check-label" for="contoh">Contohhhhhhhhhhhhhhhhhhh</label>
+                            </div> -->
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" onclick="clearForm()">Reset</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Data -->
+        <div class="modal fade" id="edit_data">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit Data</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="fa fa-times-circle" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <form action="#" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="nama_barang">Nama Barang</label>
+                                <input name="nama_barang" type="text" class="form-control" id="nama_barang_edit" placeholder="Nama Barang">
                             </div>
+                            <div class="form-group">
+                                <label for="satuan">Satuan</label>
+                                <input name="satuan" type="text" class="form-control" id="satuan_edit" placeholder="Satuan Barang">
+                            </div>
+                            <div class="form-group">
+                                <label for="harga_min">Harga Minimal</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Rp.</div>
+                                    </div>
+                                    <input name="h_min" type="number" min="1" class="form-control no-spinners" id="harga_min_edit" placeholder="Minimal">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="harga_max">Harga Maksimal</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Rp.</div>
+                                    </div>
+                                    <input name="h_max" type="number" min="1" class="form-control no-spinners" id="harga_max_edit" placeholder="Maksimal">
+                                </div>
+                            </div>
+                            <!-- <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="contoh">
+                                <label class="form-check-label" for="contoh">Contohhhhhhhhhhhhhhhhhhh</label>
+                            </div> -->
                         </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-default" onclick="clearForm()">Reset</button>
@@ -109,8 +152,8 @@
                     <td>${row.harga_min}</td>
                     <td>${row.harga_max}</td>
                     <td>
-                        <button type="button" value="${row.id}" onclick="console.log(this.value)" class="btn btn-secondary">Edit</button>
-                        <button type="button" value="${row.id}" onclick="console.log(this.value)" class="btn btn-danger">Hapus</button>
+                        <button type="button" value="${row.id}" data-id="${row.id}" class="btn btn-secondary edit" data-toggle="modal" data-target="#edit_data">Edit</button>
+                        <button type="button" value="${row.id}" class="btn btn-danger">Hapus</button>
                     </td>
                 `;
                 tableBody.appendChild(rowData)
@@ -121,12 +164,21 @@
             generateTableBarang(<?php echo json_encode($data_barang); ?>)
         };
 
-        function clearForm(){
+        function clearForm() {
             document.getElementById('nama_barang').value = '';
             document.getElementById('satuan').value = '';
             document.getElementById('harga_min').value = '';
             document.getElementById('harga_max').value = '';
         }
+
+
+        document.addEventListener("DOMContentLoaded", (event) => {
+            $(document).on('click', '.edit', function() {
+                let id = $(this).data('id')
+                let url = "{{ url('api/barang/getData?id=') }}"
+                fetchData(url, id)
+            });
+        });
     </script>
 
 

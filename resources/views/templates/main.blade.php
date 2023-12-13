@@ -54,6 +54,8 @@
 	<script src="{{url('/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 	<!-- AdminLTE App -->
 	<script src="{{url('/adminlte/dist/js/adminlte.min.js')}}"></script>
+
+	<script src="{{url('/assets/js/script.js')}}"></script>
 	@stack('addon-js')
 </body>
 
