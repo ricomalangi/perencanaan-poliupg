@@ -146,28 +146,12 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-danger" id="deleteConfirmButton" onclick="doDelete(this.value)" data-dismiss="modal">Hapus</button>
+                        <button type="button" class="btn btn-danger" id="deleteConfirmButton" onclick="confirmDelete(this.value)" data-dismiss="modal">Hapus</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Toast -->
-        <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
-            <div class="toast" id="myToast" style="position: absolute; top: 0; right: 0;">
-                <div class="toast-header">
-                    <img src="..." class="rounded mr-2" alt="...">
-                    <strong class="mr-auto">Bootstrap</strong>
-                    <small>11 mins ago</small>
-                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="toast-body">
-                    Hello, world! This is a toast message.
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -203,6 +187,11 @@
             document.getElementById('harga_max').value = '';
         }
 
+        function confirmDelete(id) {
+            let url = "{{ url('barang/delete?id=') }}"
+            doDelete(url, id)
+        }
+
         document.addEventListener("DOMContentLoaded", (event) => {
             $(document).on('click', '.edit', function() {
                 let id = $(this).data('id')
@@ -212,7 +201,13 @@
 
             $(document).on('click', '.delete-button', function() {
                 document.getElementById('deleteConfirmButton').value = $(this).data('id')
+                // let but = document.getElementById('deleteConfirmButton')
+                // let id = $(this).data('id');
+                // console.log(but)
+                // but.removeAttribute('data-delete-id')
+                // but.setAttribute('data-delete-id', id)
             });
+
         });
     </script>
 

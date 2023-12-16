@@ -33,3 +33,6 @@ Route::get('barang', [MasterController::class, 'barang']);
 Route::post('barang/input', [MasterController::class, 'inputBarang']);
 Route::post('barang/saveEdit', [MasterController::class, 'saveBarang']);
 
+// API - Barang
+Route::get('barang/delete', [MasterController::class, 'deleteBarang']);
+

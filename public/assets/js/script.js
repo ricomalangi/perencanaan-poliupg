@@ -16,17 +16,15 @@ function fetchData(url, id) {
     xhr.send();
 }
 
-function doDelete(id) {
-    console.log(id)
+function doDelete(url, id) {
+    // console.log(data);
+    // console.log("ini url: " + url)
+    // console.log("ini id: " + id)
+    // var xhr = new XMLHttpRequest()
+    // xhr.open('GET', url + id, true)
+    // xhr.send()
+    window.location.href = url + id
+    // console.log(this)
 
-    let myToast = document.getElementById('myToast');
-
-    // Display the toast
-    var toast = new bootstrap.Toast(myToast);
-    toast.show();
-
-    // Close the toast after 2 seconds
-    setTimeout(function () {
-        toast.hide();
-    }, 2000);
+    // console.log(url+id)
 }
