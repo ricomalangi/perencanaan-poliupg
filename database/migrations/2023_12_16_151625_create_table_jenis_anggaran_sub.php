@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tb_jenis_anggaran_sub', function (Blueprint $table) {
             $table->id();
-            $table->string('id_jenis_sub_anggaran');
-            $table->string('id_jenis_anggaran');
+            $table->string('uuid_jenis_sub_anggaran');
+            $table->string('uuid_jenis_anggaran');
             $table->string('nama_sub_anggaran');
             $table->string('satuan_anggaran');
             $table->string('harga_max');

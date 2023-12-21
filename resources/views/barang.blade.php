@@ -156,11 +156,11 @@
 
     <script>
         function generateTableBarang(dataBarang) {
-            let tableBody = document.getElementById('table_data')
+            let tableBody = $('#table_data');
 
             dataBarang.data.forEach(function(row) {
-                let rowData = document.createElement('tr')
-                rowData.innerHTML = `
+                let rowData = $('<tr></tr>');
+                rowData.html(`
                     <td>${row.nama_barang}</td>
                     <td>${row.satuan}</td>
                     <td>${row.harga_min}</td>
@@ -171,21 +171,23 @@
                             Hapus
                         </button>
                     </td>
-                `;
-                tableBody.appendChild(rowData)
+                `);
+                tableBody.append(rowData);
             });
         }
+
 
         window.onload = function() {
             generateTableBarang(<?php echo json_encode($data_barang); ?>)
         };
 
         function clearForm() {
-            document.getElementById('nama_barang').value = '';
-            document.getElementById('satuan').value = '';
-            document.getElementById('harga_min').value = '';
-            document.getElementById('harga_max').value = '';
+            $('#nama_barang').val('');
+            $('#satuan').val('');
+            $('#harga_min').val('');
+            $('#harga_max').val('');
         }
+
 
         function confirmDelete(id) {
             let url = "{{ url('barang/delete?id=') }}"
@@ -200,15 +202,35 @@
             });
 
             $(document).on('click', '.delete-button', function() {
-                document.getElementById('deleteConfirmButton').value = $(this).data('id')
-                // let but = document.getElementById('deleteConfirmButton')
-                // let id = $(this).data('id');
-                // console.log(but)
-                // but.removeAttribute('data-delete-id')
-                // but.setAttribute('data-delete-id', id)
+                $('#deleteConfirmButton').val($(this).data('id'))
             });
-
         });
+
+        // ambil data yang mau di edit
+        function fetchData(url, id) {
+            $.get(url + id, function(data) {
+                if (data.length > 0) {
+                    $('#data_id_edit').val(data[0].id);
+                    $('#nama_barang_edit').val(data[0].nama_barang);
+                    $('#satuan_edit').val(data[0].satuan);
+                    $('#harga_min_edit').val(data[0].harga_min);
+                    $('#harga_max_edit').val(data[0].harga_max);
+                }
+            });
+        }
+
+        function doDelete(url, id) {
+            $.ajax({
+                url: url + id,
+                type: 'DELETE',
+                success: function(response) {
+                    alert("Data Berhasil Dihapus");
+                },
+                error: function(xhr, status, error) {
+                    alert("Data Gagal Dihapus");
+                }
+            });
+        }
     </script>
 
 

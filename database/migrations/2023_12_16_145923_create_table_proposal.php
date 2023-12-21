@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('tb_proposal', function (Blueprint $table) {
             $table->id();
-            $table->string('id_proposal');
-            $table->string('id_user');
-            $table->string('id_tahun_anggaran');
+            $table->string('uuid_proposal');
+            $table->string('uuid_user');
+            $table->string('uuid_tahun_anggaran');
             $table->string('halaman_judul');
             $table->string('halaman_pengesahan');
             $table->string('latar_belakang');

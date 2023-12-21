@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tb_unit_kerja', function (Blueprint $table) {
             $table->id();
-            $table->string('id_unit_kerja');
-            $table->string('id_bidang');
+            $table->string('uuid_unit_kerja');
+            $table->string('uuid_bidang');
             $table->string('nama_unit_kerja');
             $table->string('kode_unit_kerja');
             $table->timestamps();

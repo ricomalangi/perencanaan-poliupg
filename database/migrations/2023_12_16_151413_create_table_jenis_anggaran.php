@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_jenis_anggaran', function (Blueprint $table) {
             $table->id();
-            $table->string('id_jenis_anggaran');
+            $table->string('uuid_jenis_anggaran');
             $table->string('nomor_anggaran');
             $table->string('nama_anggaran');
             $table->string('kode_anggaran');

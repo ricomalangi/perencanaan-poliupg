@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_barang', function (Blueprint $table) {
             $table->id();
-            $table->string('id_master_anggaran');
+            $table->string('uuid_master_anggaran');
             $table->string('nama_barang');
             $table->string('satuan');
             $table->string('harga_min');

@@ -17,14 +17,5 @@ function fetchData(url, id) {
 }
 
 function doDelete(url, id) {
-    // console.log(data);
-    // console.log("ini url: " + url)
-    // console.log("ini id: " + id)
-    // var xhr = new XMLHttpRequest()
-    // xhr.open('GET', url + id, true)
-    // xhr.send()
     window.location.href = url + id
-    // console.log(this)
-
-    // console.log(url+id)
 }

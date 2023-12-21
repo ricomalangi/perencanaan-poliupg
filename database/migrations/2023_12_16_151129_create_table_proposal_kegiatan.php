@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('tb_proposal_kegiatan', function (Blueprint $table) {
             $table->id();
-            $table->string('id_proposal_kegiatan');
-            $table->string('id_proposal');
-            $table->string('id_iku');
+            $table->string('uuid_proposal_kegiatan');
+            $table->string('uuid_proposal');
+            $table->string('uuid_iku');
             $table->string('nama_kegiatan');
             $table->boolean('acc_wadir_bidang');
             $table->string('komentar_wadir_bidang');
