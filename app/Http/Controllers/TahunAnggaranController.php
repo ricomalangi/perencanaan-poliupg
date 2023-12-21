@@ -11,16 +11,24 @@ class TahunAnggaranController extends Controller
 {
     public function index()
     {
-        $data = TahunAnggaran::orderBy('id', 'desc')->paginate(5);
-        $data = [
-            'tahun_anggaran' => $data
-        ];
-        return view('admin.tahun_anggaran.index', $data);
+        try {
+            $data = TahunAnggaran::orderBy('id', 'desc')->paginate(5);
+            $data = [
+                'tahun_anggaran' => $data
+            ];
+            return view('admin.tahun_anggaran.index', $data);
+        } catch (Exception $execption) {
+            return redirect()->back()->with('error', "Error " . $execption->getMessage());
+        }
     }
 
     public function create()
     {
-        return view('admin.tahun_anggaran.create');
+        try {
+            return view('admin.tahun_anggaran.create');
+        } catch (Exception $execption) {
+            return redirect()->back()->with('error', "Error " . $execption->getMessage());
+        }
     }
 
     public function add(Request $request)
