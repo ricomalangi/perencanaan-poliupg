@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_bidang', function (Blueprint $table) {
             $table->id();
-            $table->string('uuid_bidang');
+            $table->string('uuid');
             $table->string('nama_bidang');
             $table->timestamps();
         });

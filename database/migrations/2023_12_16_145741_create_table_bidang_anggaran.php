@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_bidang_anggaran', function (Blueprint $table) {
             $table->id();
-            $table->string('uuid_bidang_anggaran');
+            $table->string('uuid');
             $table->string('uuid_bidang');
             $table->string('uuid_tahun_anggaran');
             $table->string('jumlah_alokasi');

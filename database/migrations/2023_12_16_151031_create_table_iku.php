@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_iku', function (Blueprint $table) {
             $table->id();
-            $table->string('uuid_iku');
+            $table->string('uuid');
             $table->string('isi_iku');
             $table->timestamps();
         });
