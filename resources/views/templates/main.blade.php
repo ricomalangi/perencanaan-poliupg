@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>AdminLTE 3 | Starter</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -52,6 +53,27 @@
 <script src="{{url('/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{url('/adminlte/dist/js/adminlte.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if (session()->has('success'))
+<script>
+    Swal.fire({
+        title: "Success",
+        text: "{{session()->get('success')}}",
+        icon: "success"
+    });
+</script>
+@endif
+
+@if (session()->has('error'))
+<script>
+    Swal.fire({
+        title: "Error",
+        text: "{{session()->get('error')}}",
+        icon: "error"
+    });
+</script>
+@endif
+
 @stack('addon-js')
 </body>
 </html>
