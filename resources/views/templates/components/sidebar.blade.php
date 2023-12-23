@@ -207,13 +207,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.jenis_anggaran')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Jenis Anggaran</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.sub_anggaran')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Sub Anggaran</p>
                             </a>

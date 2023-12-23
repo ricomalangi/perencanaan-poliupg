@@ -13,14 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-<<<<<<< Updated upstream
-Route::get('/admin/dashboard', 'App\Http\Controllers\DashboardController@index')->name('admin.dashboard');
-
-Route::get('/admin/tahun-anggaran', 'App\Http\Controllers\TahunAnggaranController@index')->name('admin.tahun_anggaran');
-Route::get('/admin/tahun-anggaran/create', 'App\Http\Controllers\TahunAnggaranController@create')->name('admin.tahun_anggaran.create');
-Route::post('/admin/tahun-anggaran', 'App\Http\Controllers\TahunAnggaranController@add')->name('admin.tahun_anggaran.add');
-Route::put('/admin/tahun-anggaran', 'App\Http\Controllers\TahunAnggaranController@update')->name('admin.tahun_anggaran.update');
-=======
 Route::get('/admin/dashboard', 'App\Http\Controllers\DashboardController@index')->name('admin.dashboard');
 
 Route::get('/admin/tahun-anggaran', 'App\Http\Controllers\TahunAnggaranController@index')->name('admin.tahun_anggaran');
@@ -44,4 +36,3 @@ Route::post('/admin/sub-anggaran/add/', 'App\Http\Controllers\SubAnggaranControl
 {Route::get('/admin/sub-anggaran/edit/{uuid}', 'App\Http\Controllers\SubAnggaranController@edit')->name('admin.sub_anggaran.edit');}
 Route::post('/admin/sub-anggaran', 'App\Http\Controllers\SubAnggaranController@delete')->name('admin.sub_anggaran.delete');
 Route::put('/admin/sub-anggaran', 'App\Http\Controllers\SubAnggaranController@update')->name('admin.sub_anggaran.update');
->>>>>>> Stashed changes
