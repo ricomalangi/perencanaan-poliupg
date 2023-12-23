@@ -72,9 +72,9 @@ class UnitKerjaController extends Controller
             $MUnitkerja->kode_unit_kerja = $request->kode_unit_kerja;
             $MUnitkerja->save();
 
-            return redirect()->route('UnitKerja')->with('success', 'Unit Kerja Berhasil Diubah');
+            return redirect()->back()->with('success', 'Unit Kerja Berhasil Diubah');
         } catch (Exception $execption) {
-            return redirect()->route('UnitKerja')->with('error', "Error " . $execption->getMessage());
+            return redirect()->back()->with('error', "Error " . $execption->getMessage());
         }
     }
 
