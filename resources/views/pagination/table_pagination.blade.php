@@ -2,18 +2,6 @@
 <div class="m-2 mx-auto w-100">
     <nav>
         <ul class="pagination justify-content-center">
-            
-            @if ($paginator->onFirstPage())
-            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.first')">
-                <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-double-left" aria-hidden="true"></i><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-            </li>
-            @else
-            <li class="page-item" aria-disabled="true" aria-label="@lang('pagination.first')">
-                <a class="page-link" href="{{ $paginator->url(1) }}" tabindex="-1" aria-label="@lang('pagination.first')"><i class="fa fa-angle-double-left" aria-hidden="true"></i><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-            </li>
-            @endif
-
-            
             @if ($paginator->onFirstPage())
             <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
                 <a class="page-link" aria-hidden="true" href="#" tabindex="-1"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
@@ -43,17 +31,6 @@
             @else
             <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
                 <a class="page-link" aria-hidden="true" href="#" tabindex="-1"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-            </li>
-            @endif
-
-            
-            @if ($paginator->hasMorePages())
-            <li class="page-item" aria-disabled="true" aria-label="@lang('pagination.first')">
-                <a class="page-link" href="{{ $paginator->url($paginator->lastPage()) }}" tabindex="-1" aria-label="@lang('pagination.last')"><i class="fa fa-angle-double-right" aria-hidden="true"></i><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-            </li>
-            @else
-            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.first')">
-                <a class="page-link" href="{{ $paginator->url($paginator->lastPage()) }}" tabindex="-1" aria-label="@lang('pagination.last')"><i class="fa fa-angle-double-right" aria-hidden="true"></i><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
             </li>
             @endif
         </ul>

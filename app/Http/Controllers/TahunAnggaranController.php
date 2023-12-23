@@ -60,6 +60,7 @@ class TahunAnggaranController extends Controller
 
             $tahun = $request->tahun;
             $uuid = $request->uuid;
+            
             $model_tahun = TahunAnggaran::where('uuid', $uuid)->firstOrFail();
             $model_tahun->nama_tahun_anggaran = $tahun;
             $model_tahun->save();
