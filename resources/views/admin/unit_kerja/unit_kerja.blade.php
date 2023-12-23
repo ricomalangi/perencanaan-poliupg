@@ -81,6 +81,25 @@
         </div>
     </form>
 
+    <!-- Modal Delete -->
+    <form action="{{route('DeleteUnitKerja')}}" method="post">
+        @csrf
+        <input id="uuidConfirm" type="hidden" name="uuid">
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h5 class="modal-title">Apakah Anda Yakin?</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-danger confirm" data-uuid="">Hapus</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
 </section>
 
 
@@ -103,6 +122,7 @@
                     <td>${row.kode_unit_kerja}</td>
                     <td>
                         <button type="button" class="btn btn-warning btn-md edit" data-uuid="${row.uuid}">Edit</button>
+                        <button type="button" class="btn btn-danger btn-md delete" data-uuid="${row.uuid}">Hapus</button>
                     </td>
                 `);
             tableBody.append(rowData);
@@ -110,7 +130,7 @@
         });
     }
 
-    window, onload = function() {
+    window.onload = function() {
         generateTable(<?php echo json_encode($unit_kerja); ?>)
     }
 
@@ -120,6 +140,15 @@
         fetchData(base, uuid)
         $('#editModal').modal('show')
     })
+
+    $(document).on('click', '.delete', function() {
+        let uuid = $(this).data('uuid')
+        console.log(uuid)
+        $('#uuidConfirm').val(uuid)
+        $('#deleteModal').modal('show')
+    })
+
+    
 
     function fetchData(url, uuid) {
         var xhr = new XMLHttpRequest();

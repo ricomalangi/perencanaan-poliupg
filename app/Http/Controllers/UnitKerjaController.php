@@ -6,7 +6,6 @@ use App\Models\UnitKerja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Exception;
-use Nette\Schema\Expect;
 
 class UnitKerjaController extends Controller
 {
@@ -73,8 +72,19 @@ class UnitKerjaController extends Controller
             $MUnitkerja->save();
 
             return redirect()->back()->with('success', 'Unit Kerja Berhasil Diubah');
-        } catch (Exception $execption) {
-            return redirect()->back()->with('error', "Error " . $execption->getMessage());
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', "Error " . $e->getMessage());
+        }
+    }
+    
+    public function delete(Request $request){
+        try {
+            $uuid = $request->uuid;
+            UnitKerja::where('uuid', $uuid)->delete();
+
+            return redirect()->back()->with('success', 'Unit Kerja Berhasil Dihapus');
+        } catch (Exception $e) {
+            return redirect()->back()->with('error', "Error " . $e->getMessage());
         }
     }
 

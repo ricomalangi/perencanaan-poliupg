@@ -29,3 +29,4 @@ Route::post('admin/unit-kerja/doAdd', [UnitKerjaController::class, 'doAdd'])->na
 
 Route::get('admin/unit-kerja/get', [UnitKerjaController::class, 'get'])->name('GetEditData');
 Route::post('admin/unit-kerja/update', [UnitKerjaController::class, 'update'])->name('UpdateUnitKerja');
+Route::post('admin/unit-kerja/delete', [UnitKerjaController::class, 'delete'])->name('DeleteUnitKerja');
