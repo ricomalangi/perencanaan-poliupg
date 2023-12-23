@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\UnitKerjaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,11 +23,20 @@ Route::get('/admin/tahun-anggaran/create', 'App\Http\Controllers\TahunAnggaranCo
 Route::post('/admin/tahun-anggaran', 'App\Http\Controllers\TahunAnggaranController@add')->name('admin.tahun_anggaran.add');
 Route::put('/admin/tahun-anggaran', 'App\Http\Controllers\TahunAnggaranController@update')->name('admin.tahun_anggaran.update');
 
-// Unit Unit Kerja
+// Unit Kerja
 Route::get('admin/unit-kerja', [UnitKerjaController::class, 'unit_kerja'])->name('UnitKerja');
 Route::get('admin/unit-kerja/add', [UnitKerjaController::class, 'add'])->name('FormTambahUnitKerja');
 Route::post('admin/unit-kerja/doAdd', [UnitKerjaController::class, 'doAdd'])->name('doAddUnitKerja');
 
-Route::get('admin/unit-kerja/get', [UnitKerjaController::class, 'get'])->name('GetEditData');
+Route::get('admin/unit-kerja/get', [UnitKerjaController::class, 'get'])->name('GetEditDataUnitKerja');
 Route::post('admin/unit-kerja/update', [UnitKerjaController::class, 'update'])->name('UpdateUnitKerja');
 Route::post('admin/unit-kerja/delete', [UnitKerjaController::class, 'delete'])->name('DeleteUnitKerja');
+
+// User
+Route::get('admin/users', [UserController::class, 'users'])->name('dataUser');
+Route::get('admin/users/add', [UserController::class, 'add'])->name('FormTambahUser');
+Route::post('admin/users/doAdd', [UserController::class, 'doAdd'])->name('doAddUser');
+
+Route::get('admin/users/get', [UserController::class, 'get'])->name('GetEditDataUser');
+Route::post('admin/users/update', [UserController::class, 'update'])->name('UpdateUser');
+Route::post('admin/users/delete', [UserController::class, 'delete'])->name('DeleteUser');
