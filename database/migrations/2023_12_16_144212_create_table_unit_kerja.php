@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('tb_unit_kerja', function (Blueprint $table) {
             $table->id();
+<<<<<<< HEAD
             $table->string('uuid_unit_kerja');
+=======
+            $table->string('uuid');
+>>>>>>> 9268cef4046a478f16391018e91a7415e1038d2d
             $table->string('uuid_bidang');
             $table->string('nama_unit_kerja');
             $table->string('kode_unit_kerja');

@@ -2,9 +2,16 @@
 <html lang="en">
 
 <head>
+<<<<<<< HEAD
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>AdminLTE 3 | Starter</title>
+=======
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>AdminLTE 3 | Starter</title>
+>>>>>>> 9268cef4046a478f16391018e91a7415e1038d2d
 
 	<!-- Google Font: Source Sans Pro -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -48,6 +55,7 @@
 
 	<!-- REQUIRED SCRIPTS -->
 
+<<<<<<< HEAD
 	<!-- jQuery -->
 	<script src="{{url('/adminlte/plugins/jquery/jquery.min.js')}}"></script>
 	<!-- Bootstrap 4 -->
@@ -57,6 +65,36 @@
 
 	<script src="{{url('/assets/js/script.js')}}"></script>
 	@stack('addon-js')
+=======
+<!-- jQuery -->
+<script src="{{url('/adminlte/plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{url('/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{url('/adminlte/dist/js/adminlte.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if (session()->has('success'))
+<script>
+    Swal.fire({
+        title: "Success",
+        text: "{{session()->get('success')}}",
+        icon: "success"
+    });
+</script>
+@endif
+
+@if (session()->has('error'))
+<script>
+    Swal.fire({
+        title: "Error",
+        text: "{{session()->get('error')}}",
+        icon: "error"
+    });
+</script>
+@endif
+
+@stack('addon-js')
+>>>>>>> 9268cef4046a478f16391018e91a7415e1038d2d
 </body>
 
 </html>
