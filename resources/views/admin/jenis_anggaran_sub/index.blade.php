@@ -61,117 +61,32 @@
           </div>
     </div>
 
-    <form action="{{route('admin.sub_anggaran.update')}}" method="POST">
-        @method('PUT')
-        @csrf
-        <div class="modal fade" id="Editmodal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Jenis Anggaran</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <input name="uuid" type="hidden" class="form-control" required>
-                        <div class="row ">
-                            <div class="col-md-6">
-
-                                <div class="form-group row ">
-                                    <label for="" class="col-3">Jenis Akun</label>
-                                    <div class="col-6">
-                                        <select name="jenis_akun" class="form-control" required>
-                                            <option value="" hidden>--pilih jenis akun--</option>
-                                            <option value="blu" >BLU</option>
-                                            <option value="boptn" >BOPTN</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="" class="col-3">Nomor Anggaran</label>
-                                    <div class="col-6">
-                                        <input name="nomor_anggaran" type="text" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="" class="col-3">Nama Anggaran</label>
-                                    <div class="col-6">
-                                        <input name="nama_anggaran" type="text" class="form-control" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row ">
-                                    <label for="" class="col-3">Kode Anggaran</label>
-                                    <div class="col-6">
-                                        <input name="kode_anggaran" type="text" class="form-control" required>
-                                    </div>
-                                </div>
-                      
-                            </div>
-
-                            <div class="col-md-6">
-                   
-                                <div class="form-group row">
-                                    <label for="" class="col-3">Sumber Anggaran</label>
-                                    <div class="col-6">
-                                        <input type="text" class="form-control" name="sumber_anggaran" required>
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group row ">
-                                    <label for="" class="col-3">Jenis Akun</label>
-                                    <div class="col-6">
-                                        <select name="jenis_akun" class="form-control" required>
-                                            <option value="" hidden>--pilih jenis akun--</option>
-                                            <option value="blu" >BLU</option>
-                                            <option value="boptn" >BOPTN</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary btn-save">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-
     <!-- MODAL CONFIRMATION DELETE -->
+    @method('POST')
+    @csrf
     <form action="{{route('admin.sub_anggaran.delete')}}" method="POST">
-        @method('POST')
-        @csrf
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <input name="uuid" type="hidden" class="form-control" required>
-                        <h4> Apa anda yakin untuk menghapus Sub Anggaran ini?</h4>
-                        
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger btn-save">Save changes</button>
-                    </div>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input name="uuid" type="hidden" class="form-control" required>
+                    <h4> Apa anda yakin untuk menghapus Sub Anggaran ini?</h4>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger btn-save">Save changes</button>
                 </div>
             </div>
         </div>
-        </form>
+    </div>
+    </form>
 </section>
 @endsection
 @push('addon-js')
