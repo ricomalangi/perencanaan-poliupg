@@ -91,24 +91,6 @@
                             <p>Sub Anggaran</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Anggaran Bidang</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Unit kerja</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Iku</p>
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
