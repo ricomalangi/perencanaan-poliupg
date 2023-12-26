@@ -42,9 +42,9 @@ class BidangController extends Controller
             $bidang->nama_bidang = $nama_bidang;
             $bidang->save();
 
-            return redirect()->route('admin.bidang')->with('success', 'Bidang berhasil ditambah');
+            return redirect()->route('admin.data_bidang')->with('success', 'Bidang berhasil ditambah');
         } catch (Exception $exception) {
-            return redirect()->route('admin.bidang')->with('error', "Error " . $exception->getMessage());
+            return redirect()->route('admin.data_bidang')->with('error', "Error " . $exception->getMessage());
         }
     }
 
@@ -60,9 +60,9 @@ class BidangController extends Controller
             $model_bidang = Bidang::where('uuid', $uuid)->firstOrFail();
             $model_bidang->nama_bidang = $nama_bidang;
             $model_bidang->save();
-            return redirect()->route('admin.bidang')->with('success', 'Bidang berhasil diupdate');
+            return redirect()->route('admin.data_bidang')->with('success', 'Bidang berhasil diupdate');
         } catch (Exception $exception) {
-            return redirect()->route('admin.bidang')->with('error', "Error " . $exception->getMessage());
+            return redirect()->route('admin.data_bidang')->with('error', "Error " . $exception->getMessage());
         }
     }
 
@@ -73,9 +73,9 @@ class BidangController extends Controller
 
             $model_bidang = Bidang::where('uuid', $uuid)->firstOrFail();
             $model_bidang->delete();
-            return redirect()->route('admin.bidang')->with('success', 'Bidang berhasil dihapus');
+            return redirect()->route('admin.data_bidang')->with('success', 'Bidang berhasil dihapus');
         } catch (Exception $exception) {
-            return redirect()->route('admin.bidang')->with('error', "Error " . $exception->getMessage());
+            return redirect()->route('admin.data_bidang')->with('error', "Error " . $exception->getMessage());
         }
     }
 }

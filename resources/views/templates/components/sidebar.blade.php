@@ -22,56 +22,81 @@
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{route('admin.dashboard')}}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <a href="{{route('admin.dashboard')}}" class="nav-link {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt "></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                        Master Data
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
+                <li class="nav-item
+                    {{ 
+                        Request::routeIs('admin.tahun_anggaran*') ||
+                        Request::routeIs('admin.data_bidang*') ||
+                        Request::routeIs('admin.bidang_anggaran*') ||
+                        Request::routeIs('UnitKerja*') ||
+                        Request::routeIs('admin.iku*') ? 'active menu-open' : ''
+                    }}">
+                    <a href="#" class="nav-link
+                        {{ 
+                            Request::routeIs('admin.tahun_anggaran*') ||
+                            Request::routeIs('admin.data_bidang*') ||
+                            Request::routeIs('admin.bidang_anggaran*') ||
+                            Request::routeIs('UnitKerja*') ||
+                            Request::routeIs('admin.iku*') ? 'active' : ''
+                        }}
+                    ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Master Data
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
                     </a>
                     <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="{{route('admin.tahun_anggaran')}}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Tahun Anggaran</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('admin.bidang') }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Bidang</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('admin.bidang_anggaran') }}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Anggaran Bidang</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('UnitKerja')}}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Unit kerja</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('admin.iku')}}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Iku</p>
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.tahun_anggaran')}}" class="nav-link {{ Request::routeIs('admin.tahun_anggaran*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tahun Anggaran</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.data_bidang') }}" class="nav-link {{ Request::routeIs('admin.data_bidang*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Bidang</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.bidang_anggaran') }}" class="nav-link {{ Request::routeIs('admin.bidang_anggaran*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Anggaran Bidang</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('UnitKerja')}}" class="nav-link {{ Request::routeIs('UnitKerja*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Unit kerja</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.iku')}}" class="nav-link {{ Request::routeIs('admin.iku*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Iku</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <li class="nav-item
+                    {{
+                        Request::routeIs('admin.jenis_anggaran*') ||
+                        Request::routeIs('admin.sub_anggaran*') ? 'active menu-open' : ''
+                    }}
+                ">
+                    <a href="#" class="nav-link
+                        {{
+                            Request::routeIs('admin.jenis_anggaran*') ||
+                            Request::routeIs('admin.sub_anggaran*') ? 'active' : ''
+                        }}
+                    ">
                         <i class="nav-icon fas fa-dollar-sign"></i>
                         <p>
                             Anggaran
@@ -80,21 +105,29 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('admin.jenis_anggaran')}}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Jenis Anggaran</p>
+                            <a href="{{route('admin.jenis_anggaran')}}" class="nav-link {{ Request::routeIs('admin.jenis_anggaran*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Jenis Anggaran</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.sub_anggaran')}}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Sub Anggaran</p>
+                            <a href="{{route('admin.sub_anggaran')}}" class="nav-link {{ Request::routeIs('admin.sub_anggaran*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Sub Anggaran</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="{{route('dataUser')}}" class="nav-link">
+                <li class="nav-item 
+                    {{
+                        Request::routeIs('dataUser*') ? 'active menu-open' : ''
+                    }}
+                ">
+                    <a href="{{route('dataUser')}}" class="nav-link
+                        {{
+                            Request::routeIs('dataUser*') ? 'active' : ''
+                        }}
+                    ">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Data User
@@ -106,4 +139,4 @@
         <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-  </aside>
+</aside>

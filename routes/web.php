@@ -18,11 +18,11 @@ Route::get('/admin/tahun-anggaran', 'App\Http\Controllers\TahunAnggaranControlle
 Route::get('/admin/tahun-anggaran/create', 'App\Http\Controllers\TahunAnggaranController@create')->name('admin.tahun_anggaran.create');
 Route::post('/admin/tahun-anggaran', 'App\Http\Controllers\TahunAnggaranController@add')->name('admin.tahun_anggaran.add');
 Route::put('/admin/tahun-anggaran', 'App\Http\Controllers\TahunAnggaranController@update')->name('admin.tahun_anggaran.update');
-Route::get('/admin/bidang', 'App\Http\Controllers\BidangController@index')->name('admin.bidang');
-Route::get('/admin/bidang/create', 'App\Http\Controllers\BidangController@create')->name('admin.bidang.create');
-Route::post('/admin/bidang', 'App\Http\Controllers\BidangController@add')->name('admin.bidang.add');
-Route::put('/admin/bidang', 'App\Http\Controllers\BidangController@update')->name('admin.bidang.update');
-Route::delete('/admin/bidang', 'App\Http\Controllers\BidangController@delete')->name('admin.bidang.delete');
+Route::get('/admin/bidang', 'App\Http\Controllers\BidangController@index')->name('admin.data_bidang');
+Route::get('/admin/bidang/create', 'App\Http\Controllers\BidangController@create')->name('admin.data_bidang.create');
+Route::post('/admin/bidang', 'App\Http\Controllers\BidangController@add')->name('admin.data_bidang.add');
+Route::put('/admin/bidang', 'App\Http\Controllers\BidangController@update')->name('admin.data_bidang.update');
+Route::delete('/admin/bidang', 'App\Http\Controllers\BidangController@delete')->name('admin.data_bidang.delete');
 Route::get('/admin/bidang-anggaran', 'App\Http\Controllers\BidangAnggaranController@index')->name('admin.bidang_anggaran');
 Route::get('/admin/bidang-anggaran/create', 'App\Http\Controllers\BidangAnggaranController@create')->name('admin.bidang_anggaran.create');
 Route::post('/admin/bidang-anggaran', 'App\Http\Controllers\BidangAnggaranController@add')->name('admin.bidang_anggaran.add');
