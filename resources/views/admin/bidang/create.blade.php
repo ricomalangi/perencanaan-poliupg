@@ -33,7 +33,7 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer clearfix">
-              
+
           </div>
         </div>
   </div>

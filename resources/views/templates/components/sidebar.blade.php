@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('UnitKerja')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Unit kerja</p>
                         </a>
@@ -80,13 +80,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.jenis_anggaran')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Jenis Anggaran</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.sub_anggaran')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Sub Anggaran</p>
                             </a>
@@ -94,7 +94,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('dataUser')}}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Data User
