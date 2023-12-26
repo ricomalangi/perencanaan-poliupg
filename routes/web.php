@@ -40,3 +40,12 @@ Route::post('admin/users/doAdd', [UserController::class, 'doAdd'])->name('doAddU
 Route::get('admin/users/get', [UserController::class, 'get'])->name('GetEditDataUser');
 Route::post('admin/users/update', [UserController::class, 'update'])->name('UpdateUser');
 Route::post('admin/users/delete', [UserController::class, 'delete'])->name('DeleteUser');
+
+// Iku
+Route::get('/admin/iku', 'App\Http\Controllers\IkuController@iku')->name('admin.iku');
+Route::get('/admin/iku/add', 'App\Http\Controllers\IkuController@add')->name('admin.iku.add');
+Route::post('/admin/iku/doAdd', 'App\Http\Controllers\IkuController@doAdd')->name('admin.iku.doAdd');
+
+Route::get('/admin/iku/get', 'App\Http\Controllers\IkuController@get')->name('admin.iku.GetData');
+Route::post('/admin/iku/update', 'App\Http\Controllers\IkuController@update')->name('admin.iku.update');
+Route::post('/admin/iku/delete', 'App\Http\Controllers\IkuController@delete')->name('admin.iku.delete');
