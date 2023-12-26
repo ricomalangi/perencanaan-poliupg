@@ -28,3 +28,37 @@ Route::get('/admin/bidang-anggaran/create', 'App\Http\Controllers\BidangAnggaran
 Route::post('/admin/bidang-anggaran', 'App\Http\Controllers\BidangAnggaranController@add')->name('admin.bidang_anggaran.add');
 Route::put('/admin/bidang-anggaran', 'App\Http\Controllers\BidangAnggaranController@update')->name('admin.bidang_anggaran.update');
 Route::delete('/admin/bidang-anggaran', 'App\Http\Controllers\BidangAnggaranController@delete')->name('admin.bidang_anggaran.delete');
+
+// Unit Kerja
+Route::get('admin/unit-kerja', 'App\Http\Controllers\UnitKerjaController@unit_kerja')->name('UnitKerja');
+Route::get('admin/unit-kerja/add', 'App\Http\Controllers\UnitKerjaController@add')->name('FormTambahUnitKerja');
+Route::post('admin/unit-kerja/doAdd', 'App\Http\Controllers\UnitKerjaController@doAdd')->name('doAddUnitKerja');
+
+Route::get('admin/unit-kerja/get', 'App\Http\Controllers\UnitKerjaController@get')->name('GetEditDataUnitKerja');
+Route::post('admin/unit-kerja/update', 'App\Http\Controllers\UnitKerjaController@update')->name('UpdateUnitKerja');
+Route::post('admin/unit-kerja/delete', 'App\Http\Controllers\UnitKerjaController@delete')->name('DeleteUnitKerja');
+
+// User
+Route::get('admin/users', 'App\Http\Controllers\UnitKerjaController@users')->name('dataUser');
+Route::get('admin/users/add', 'App\Http\Controllers\UnitKerjaController@add')->name('FormTambahUser');
+Route::post('admin/users/doAdd', ['App\Http\Controllers\UnitKerjaController@doAdd', 'doAdd'])->name('doAddUser');
+
+Route::get('admin/users/get', 'App\Http\Controllers\UnitKerjaController@get')->name('GetEditDataUser');
+Route::post('admin/users/update', 'App\Http\Controllers\UnitKerjaController@update')->name('UpdateUser');
+Route::post('admin/users/delete', 'App\Http\Controllers\UnitKerjaController@delete')->name('DeleteUser');
+
+// JENIS ANGGARAN
+Route::get('/admin/jenis-anggaran', 'App\Http\Controllers\JenisAnggaranController@index')->name('admin.jenis_anggaran');
+Route::get('/admin/jenis-anggaran/create', 'App\Http\Controllers\JenisAnggaranController@create')->name('admin.jenis_anggaran.create');
+Route::post('/admin/jenis-anggaran/add', 'App\Http\Controllers\JenisAnggaranController@add')->name('admin.jenis_anggaran.add');
+Route::post('/admin/jenis-anggaran', 'App\Http\Controllers\JenisAnggaranController@delete')->name('admin.jenis_anggaran.delete');
+Route::put('/admin/jenis-anggaran', 'App\Http\Controllers\JenisAnggaranController@update')->name('admin.jenis_anggaran.update');
+
+// SUB ANGGARAN
+Route::get('/admin/sub-anggaran', 'App\Http\Controllers\SubAnggaranController@index')->name('admin.sub_anggaran');
+Route::get('/admin/sub-anggaran/create', 'App\Http\Controllers\SubAnggaranController@create')->name('admin.sub_anggaran.create');
+Route::get('/admin/sub-anggaran/lihat/{uuid}', 'App\Http\Controllers\SubAnggaranController@lihat')->name('admin.sub_anggaran.lihat');
+Route::post('/admin/sub-anggaran/add/', 'App\Http\Controllers\SubAnggaranController@add')->name('admin.sub_anggaran.add');
+Route::get('/admin/sub-anggaran/edit/{uuid}', 'App\Http\Controllers\SubAnggaranController@edit')->name('admin.sub_anggaran.edit');
+Route::post('/admin/sub-anggaran', 'App\Http\Controllers\SubAnggaranController@delete')->name('admin.sub_anggaran.delete');
+Route::put('/admin/sub-anggaran', 'App\Http\Controllers\SubAnggaranController@update')->name('admin.sub_anggaran.update');
