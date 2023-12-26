@@ -45,19 +45,19 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('admin.bidang') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Bidang</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('admin.bidang_anggaran') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Anggaran Bidang</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('UnitKerja')}}" class="nav-link">   
+                        <a href="{{route('UnitKerja')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Unit kerja</p>
                         </a>
@@ -80,13 +80,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.jenis_anggaran')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Jenis Anggaran</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.sub_anggaran')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Sub Anggaran</p>
                             </a>

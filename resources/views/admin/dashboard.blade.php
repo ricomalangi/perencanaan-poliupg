@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h4>Dashboard</h4>
+          <h4>Selamat datang <b>user</b></h4>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -16,7 +16,7 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>150</h3>
+                  <h3>4</h3>
                   <p>Bidang</p>
                 </div>
                 <div class="icon">
@@ -30,9 +30,8 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                  <p>Bounce Rate</p>
+                  <h3>53</h3>
+                  <p>Unit Kerja</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -45,9 +44,9 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3>100</h3>
 
-                  <p>User Registrations</p>
+                  <p>Pengguna</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
