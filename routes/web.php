@@ -1,10 +1,7 @@
 <?php
 
-use App\Http\Controllers\MasterController;
-use App\Http\Controllers\UnitKerjaController;
-use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,26 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/admin/dashboard', 'App\Http\Controllers\DashboardController@index')->name('admin.dashboard');
-
 Route::get('/admin/tahun-anggaran', 'App\Http\Controllers\TahunAnggaranController@index')->name('admin.tahun_anggaran');
 Route::get('/admin/tahun-anggaran/create', 'App\Http\Controllers\TahunAnggaranController@create')->name('admin.tahun_anggaran.create');
 Route::post('/admin/tahun-anggaran', 'App\Http\Controllers\TahunAnggaranController@add')->name('admin.tahun_anggaran.add');
 Route::put('/admin/tahun-anggaran', 'App\Http\Controllers\TahunAnggaranController@update')->name('admin.tahun_anggaran.update');
-
-// Unit Kerja
-Route::get('admin/unit-kerja', [UnitKerjaController::class, 'unit_kerja'])->name('UnitKerja');
-Route::get('admin/unit-kerja/add', [UnitKerjaController::class, 'add'])->name('FormTambahUnitKerja');
-Route::post('admin/unit-kerja/doAdd', [UnitKerjaController::class, 'doAdd'])->name('doAddUnitKerja');
-
-Route::get('admin/unit-kerja/get', [UnitKerjaController::class, 'get'])->name('GetEditDataUnitKerja');
-Route::post('admin/unit-kerja/update', [UnitKerjaController::class, 'update'])->name('UpdateUnitKerja');
-Route::post('admin/unit-kerja/delete', [UnitKerjaController::class, 'delete'])->name('DeleteUnitKerja');
-
-// User
-Route::get('admin/users', [UserController::class, 'users'])->name('dataUser');
-Route::get('admin/users/add', [UserController::class, 'add'])->name('FormTambahUser');
-Route::post('admin/users/doAdd', [UserController::class, 'doAdd'])->name('doAddUser');
-
-Route::get('admin/users/get', [UserController::class, 'get'])->name('GetEditDataUser');
-Route::post('admin/users/update', [UserController::class, 'update'])->name('UpdateUser');
-Route::post('admin/users/delete', [UserController::class, 'delete'])->name('DeleteUser');
+Route::get('/admin/bidang', 'App\Http\Controllers\BidangController@index')->name('admin.bidang');
+Route::get('/admin/bidang/create', 'App\Http\Controllers\BidangController@create')->name('admin.bidang.create');
+Route::post('/admin/bidang', 'App\Http\Controllers\BidangController@add')->name('admin.bidang.add');
+Route::put('/admin/bidang', 'App\Http\Controllers\BidangController@update')->name('admin.bidang.update');
+Route::delete('/admin/bidang', 'App\Http\Controllers\BidangController@delete')->name('admin.bidang.delete');
+Route::get('/admin/bidang-anggaran', 'App\Http\Controllers\BidangAnggaranController@index')->name('admin.bidang_anggaran');
+Route::get('/admin/bidang-anggaran/create', 'App\Http\Controllers\BidangAnggaranController@create')->name('admin.bidang_anggaran.create');
+Route::post('/admin/bidang-anggaran', 'App\Http\Controllers\BidangAnggaranController@add')->name('admin.bidang_anggaran.add');
+Route::put('/admin/bidang-anggaran', 'App\Http\Controllers\BidangAnggaranController@update')->name('admin.bidang_anggaran.update');
+Route::delete('/admin/bidang-anggaran', 'App\Http\Controllers\BidangAnggaranController@delete')->name('admin.bidang_anggaran.delete');
