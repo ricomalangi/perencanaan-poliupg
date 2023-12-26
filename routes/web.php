@@ -39,13 +39,13 @@ Route::post('admin/unit-kerja/update', 'App\Http\Controllers\UnitKerjaController
 Route::post('admin/unit-kerja/delete', 'App\Http\Controllers\UnitKerjaController@delete')->name('DeleteUnitKerja');
 
 // User
-Route::get('admin/users', 'App\Http\Controllers\UnitKerjaController@users')->name('dataUser');
-Route::get('admin/users/add', 'App\Http\Controllers\UnitKerjaController@add')->name('FormTambahUser');
-Route::post('admin/users/doAdd', 'App\Http\Controllers\UnitKerjaController@doAdd')->name('doAddUser');
+Route::get('admin/users', 'App\Http\Controllers\UserController@users')->name('dataUser');
+Route::get('admin/users/add', 'App\Http\Controllers\UserController@add')->name('FormTambahUser');
+Route::post('admin/users/doAdd', 'App\Http\Controllers\UserController@doAdd')->name('doAddUser');
 
-Route::get('admin/users/get', 'App\Http\Controllers\UnitKerjaController@get')->name('GetEditDataUser');
-Route::post('admin/users/update', 'App\Http\Controllers\UnitKerjaController@update')->name('UpdateUser');
-Route::post('admin/users/delete', 'App\Http\Controllers\UnitKerjaController@delete')->name('DeleteUser');
+Route::get('admin/users/get', 'App\Http\Controllers\UserController@get')->name('GetEditDataUser');
+Route::post('admin/users/update', 'App\Http\Controllers\UserController@update')->name('UpdateUser');
+Route::post('admin/users/delete', 'App\Http\Controllers\UserController@delete')->name('DeleteUser');
 
 // JENIS ANGGARAN
 Route::get('/admin/jenis-anggaran', 'App\Http\Controllers\JenisAnggaranController@index')->name('admin.jenis_anggaran');
