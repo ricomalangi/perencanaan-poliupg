@@ -8,7 +8,6 @@ use App\Models\TahunAnggaran;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
 
 class BidangAnggaranController extends Controller
@@ -18,17 +17,16 @@ class BidangAnggaranController extends Controller
         try {
             $bidang = Bidang::get();
             $tahun_anggaran = TahunAnggaran::get();
-           $data = DB::table('tb_bidang_anggaran')
-                        ->join('tb_bidang', 'tb_bidang.uuid', '=', 'tb_bidang_anggaran.uuid_bidang')
-                        ->join('tb_tahun_anggaran', 'tb_tahun_anggaran.uuid', '=', 'tb_bidang_anggaran.uuid_tahun_anggaran')
-                        ->select('tb_bidang.nama_bidang', 'tb_tahun_anggaran.nama_tahun_anggaran', 'tb_bidang_anggaran.jumlah_alokasi', 'tb_bidang_anggaran.uuid', 'tb_bidang_anggaran.uuid_bidang', 'tb_bidang_anggaran.uuid_tahun_anggaran')
-                        ->orderBy('tb_bidang_anggaran.id', 'desc')->paginate(5);
+            $data = DB::table('tb_bidang_anggaran')
+                ->join('tb_bidang', 'tb_bidang.uuid', '=', 'tb_bidang_anggaran.uuid_bidang')
+                ->join('tb_tahun_anggaran', 'tb_tahun_anggaran.uuid', '=', 'tb_bidang_anggaran.uuid_tahun_anggaran')
+                ->select('tb_bidang.nama_bidang', 'tb_tahun_anggaran.nama_tahun_anggaran', 'tb_bidang_anggaran.jumlah_alokasi', 'tb_bidang_anggaran.uuid', 'tb_bidang_anggaran.uuid_bidang', 'tb_bidang_anggaran.uuid_tahun_anggaran')
+                ->orderBy('tb_bidang_anggaran.id', 'desc')->paginate(5);
             $data = [
                 'bidang_anggaran' => $data,
                 'bidang' => $bidang,
                 'tahun_anggaran' => $tahun_anggaran,
             ];
-            // dd($data);
             return view('admin.bidang_anggaran.index', $data);
         } catch (Exception $exception) {
             return redirect()->back()->with('error', "Error " . $exception->getMessage());
@@ -65,7 +63,7 @@ class BidangAnggaranController extends Controller
             $bidang_anggaran->uuid_tahun_anggaran = $uuid_tahun_anggaran;
             $bidang_anggaran->jumlah_alokasi = $jumlah_alokasi;
             $bidang_anggaran->save();
-            
+
 
             return redirect()->route('admin.bidang_anggaran')->with('success', 'Bidang anggaran berhasil ditambah');
         } catch (Exception $exception) {

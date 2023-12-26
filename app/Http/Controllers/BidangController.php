@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Bidang;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
 
 class BidangController extends Controller
