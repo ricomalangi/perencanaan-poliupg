@@ -41,7 +41,7 @@ Route::post('admin/unit-kerja/delete', 'App\Http\Controllers\UnitKerjaController
 // User
 Route::get('admin/users', 'App\Http\Controllers\UnitKerjaController@users')->name('dataUser');
 Route::get('admin/users/add', 'App\Http\Controllers\UnitKerjaController@add')->name('FormTambahUser');
-Route::post('admin/users/doAdd', ['App\Http\Controllers\UnitKerjaController@doAdd', 'doAdd'])->name('doAddUser');
+Route::post('admin/users/doAdd', 'App\Http\Controllers\UnitKerjaController@doAdd')->name('doAddUser');
 
 Route::get('admin/users/get', 'App\Http\Controllers\UnitKerjaController@get')->name('GetEditDataUser');
 Route::post('admin/users/update', 'App\Http\Controllers\UnitKerjaController@update')->name('UpdateUser');
