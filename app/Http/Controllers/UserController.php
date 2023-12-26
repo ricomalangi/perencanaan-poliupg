@@ -44,7 +44,6 @@ class UserController extends Controller
         try {
             $request->validate([
                 'uuid_unit_kerja' => 'required',
-                'nama_user' => 'required',
                 'username' => 'required',
                 'password' => 'required',
                 'email' => 'required|email',
@@ -57,7 +56,6 @@ class UserController extends Controller
 
             $MUsers->uuid = Str::uuid();
             $MUsers->uuid_unit_kerja = $request->uuid_unit_kerja;
-            $MUsers->nama_user = $request->nama_user;
             $MUsers->username = $request->username;
             $MUsers->password = $request->password;
             $MUsers->email = $request->email;

@@ -36,16 +36,12 @@
                         <input type="text" name="nama_user" id="nama_user" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" name="username" id="username" class="form-control" required>
+                        <label>E-Mail</label>
+                        <input type="mail" name="email" id="email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
                         <input type="password" name="password" id="password" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>E-Mail</label>
-                        <input type="mail" name="email" id="email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>No. Telp / Wa</label>

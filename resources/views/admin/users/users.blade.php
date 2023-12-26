@@ -26,7 +26,6 @@
                             <th>No</th>
                             <th>Nama</th>
                             <th>Unit Kerja</th>
-                            <th>Username</th>
                             <th>E-Mail</th>
                             <th>No. Telp / WA</th>
                             <th>Level</th>
@@ -72,16 +71,12 @@
                             <input type="text" name="nama_user" id="nama_user" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" name="username" id="username" class="form-control" required>
+                            <label>E-Mail</label>
+                            <input type="mail" name="email" id="email" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Password</label>
                             <input type="password" name="password" id="password" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>E-Mail</label>
-                            <input type="mail" name="email" id="email" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>No. Telp / Wa</label>
@@ -143,7 +138,6 @@
                     <td>${no}</td>
                     <td>${row.nama_user}</td>
                     <td>${row.nama_unit_kerja}</td>
-                    <td>${row.username}</td>
                     <td>${row.email}</td>
                     <td>${row.no_telp}</td>
                     <td>${row.level_user}</td>
@@ -186,7 +180,6 @@
                     $('#uuid').val(result.uuid)
                     $('#uuid_unit_kerja').val(result.uuid_unit_kerja)
                     $('#nama_user').val(result.nama_user)
-                    $('#username').val(result.username)
                     $('#password').val(result.password)
                     $('#email').val(result.email)
                     $('#no_telp').val(result.no_telp)
