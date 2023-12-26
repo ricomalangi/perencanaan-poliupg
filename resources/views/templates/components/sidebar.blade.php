@@ -45,13 +45,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.bidang') }}" class="nav-link">
+                        <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Bidang</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.bidang_anggaran') }}" class="nav-link">
+                        <a href="#" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Anggaran Bidang</p>
                         </a>
