@@ -18,7 +18,7 @@
         </div>
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
                 <li class="nav-item">
@@ -120,12 +120,14 @@
                 </li>
                 <li class="nav-item 
                     {{
-                        Request::routeIs('dataUser*') ? 'active menu-open' : ''
+                        Request::routeIs('FormTambahUser') ||
+                        Request::routeIs('dataUser*') ? ' active menu-open' : ''
                     }}
                 ">
                     <a href="{{route('dataUser')}}" class="nav-link
                         {{
-                            Request::routeIs('dataUser*') ? 'active' : ''
+                            Request::routeIs('FormTambahUser') ||
+                            Request::routeIs('dataUser*') ? ' active' : ''
                         }}
                     ">
                         <i class="nav-icon fas fa-users"></i>
