@@ -113,7 +113,7 @@
                           </div>
                           <div class="form-group">
                             <label class="form-label">Jumlah Alokasi</label>
-                            <input type="number" name="jumlah_alokasi" class="form-control">
+                            <input type="text" name="jumlah_alokasi" class="form-control" id="jumlah-alokasi">
                           </div>
                       </div>
                       <div class="modal-footer">
@@ -148,5 +148,29 @@
         let uuid = $(this).data('uuid')
         $('input[name="uuid"]').val(uuid)
       })
+    </script>
+    <script>
+      var dengan_rupiah = document.getElementById('jumlah-alokasi');
+      dengan_rupiah.addEventListener('keyup', function(e)
+      {
+        dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+      });
+
+      function formatRupiah(angka, prefix)
+      {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+          split	= number_string.split(','),
+          sisa 	= split[0].length % 3,
+          rupiah 	= split[0].substr(0, sisa),
+          ribuan 	= split[0].substr(sisa).match(/\d{3}/gi);
+          
+        if (ribuan) {
+          separator = sisa ? '.' : '';
+          rupiah += separator + ribuan.join('.');
+        }
+        
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+      }
     </script>
 @endpush
