@@ -58,9 +58,10 @@
                         <div class="form-group">
                             <label>Bidang</label>
                             <select id="uuid_bidang" name="uuid_bidang" class="form-control" required>
-                                <option value="qwerty">Bidang 1</option>
-                                <option value="asdfgh">Bidang 2</option>
-                                <option value="zxcvbn">Bidang 3</option>
+                                <option hidden>Pilih Bidang</option>
+                                @foreach ($data_bidang as $bidang)
+                                <option value="{{$bidang->uuid}}">{{$bidang->nama_bidang}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
@@ -117,7 +118,7 @@
             let rowData = $('<tr></tr>');
             rowData.html(`
                     <td>${no}</td>
-                    <td>${row.uuid_bidang}</td>
+                    <td>${row.nama_bidang}</td>
                     <td>${row.nama_unit_kerja}</td>
                     <td>${row.kode_unit_kerja}</td>
                     <td>
@@ -147,7 +148,7 @@
         $('#deleteModal').modal('show')
     })
 
-    
+
 
     function fetchData(url, uuid) {
         var xhr = new XMLHttpRequest();

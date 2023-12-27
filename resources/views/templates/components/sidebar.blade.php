@@ -1,8 +1,8 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-        <img src="{{url('/adminlte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Perencanaan PNUP</span>
+    <a href="#" class="brand-link bg-primary">
+        <img src="{{url('/assets/images/pnup.png')}}" alt="AdminLTE Logo" class="brand-image elevation-3">
+        <span class="brand-text font-weight-dark">Perencanaan PNUP</span>
     </a>
 
     <!-- Sidebar -->
@@ -31,6 +31,7 @@
                 </li>
                 <li class="nav-item
                     {{ 
+                        Request::routeIs('FormTambahUnitKerja*') ||
                         Request::routeIs('admin.tahun_anggaran*') ||
                         Request::routeIs('admin.data_bidang*') ||
                         Request::routeIs('admin.bidang_anggaran*') ||
@@ -38,7 +39,8 @@
                         Request::routeIs('admin.iku*') ? 'active menu-open' : ''
                     }}">
                     <a href="#" class="nav-link
-                        {{ 
+                        {{
+                            Request::routeIs('FormTambahUnitKerja*') || 
                             Request::routeIs('admin.tahun_anggaran*') ||
                             Request::routeIs('admin.data_bidang*') ||
                             Request::routeIs('admin.bidang_anggaran*') ||
@@ -72,7 +74,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('UnitKerja')}}" class="nav-link {{ Request::routeIs('UnitKerja*') ? 'active' : '' }}">
+                            <a href="{{route('UnitKerja')}}" class="nav-link {{ Request::routeIs('UnitKerja*') || Request::routeIs('FormTambahUnitKerja*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Unit kerja</p>
                             </a>

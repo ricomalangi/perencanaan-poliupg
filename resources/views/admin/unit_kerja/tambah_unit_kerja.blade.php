@@ -26,9 +26,9 @@
                         <label>Bidang</label>
                         <select name="uuid_bidang" class="form-control" required>
                             <option hidden>Pilih Bidang</option>
-                            <option value="qwerty" >Bidang 1</option>
-                            <option value="asdfgh" >Bidang 2</option>
-                            <option value="zxcvbn" >Bidang 3</option>
+                            @foreach ($data_bidang as $bidang)
+                            <option value="{{$bidang->uuid}}" >{{$bidang->nama_bidang}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
