@@ -6,15 +6,19 @@ use App\Models\UnitKerja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 class UnitKerjaController extends Controller
 {
     public function unit_kerja()
     {
         try {
-            $data = UnitKerja::paginate(5);
+            $MUnitkerja = new UnitKerja();
+            $data = $MUnitkerja->getData(6);
+            $bidang = DB::table('tb_bidang')->get();
             $data = [
-                'unit_kerja' => $data
+                'unit_kerja' => $data,
+                'data_bidang' => $bidang
             ];
             return view('admin.unit_kerja.unit_kerja', $data);
         } catch (Exception $execption) {
@@ -25,7 +29,11 @@ class UnitKerjaController extends Controller
     public function add()
     {
         try {
-            return view('admin.unit_kerja.tambah_unit_kerja');
+            $bidang = DB::table('tb_bidang')->get();
+            $data = [
+                'data_bidang' => $bidang,
+            ];
+            return view('admin.unit_kerja.tambah_unit_kerja', $data);
         } catch (Exception $execption) {
             return redirect()->back()->with('error', "Error " . $execption->getMessage());
         }

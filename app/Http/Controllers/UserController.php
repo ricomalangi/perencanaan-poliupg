@@ -45,9 +45,8 @@ class UserController extends Controller
             $request->validate([
                 'uuid_unit_kerja' => 'required',
                 'nama_user' => 'required',
-                'username' => 'required',
                 'password' => 'required',
-                'email' => 'required|email',
+                'email' => 'required|email|unique:tb_users',
                 'no_telp' => 'required',
                 'level' => 'required',
                 'status' => 'required',
@@ -58,7 +57,6 @@ class UserController extends Controller
             $MUsers->uuid = Str::uuid();
             $MUsers->uuid_unit_kerja = $request->uuid_unit_kerja;
             $MUsers->nama_user = $request->nama_user;
-            $MUsers->username = $request->username;
             $MUsers->password = $request->password;
             $MUsers->email = $request->email;
             $MUsers->no_telp = $request->no_telp;
@@ -76,24 +74,22 @@ class UserController extends Controller
     public function update(Request $request)
     {
         try {
+            
+            $uuid = $request->uuid;
+            $M_User = User::where('uuid', $uuid)->firstOrFail();
             $request->validate([
                 'uuid' => 'required',
                 'uuid_unit_kerja' => 'required',
                 'nama_user' => 'required',
-                'username' => 'required',
                 'password' => 'required',
-                'email' => 'required|email',
+                'email' => 'required|email|unique:tb_users,email,' . $M_User->id,
                 'no_telp' => 'required',
                 'level' => 'required',
                 'status' => 'required',
             ]);
-
-            $uuid = $request->uuid;
-            $M_User = User::where('uuid', $uuid)->firstOrFail();
-
+            
             $M_User->uuid_unit_kerja = $request->uuid_unit_kerja;
             $M_User->nama_user = $request->nama_user;
-            $M_User->username = $request->username;
             $M_User->password = $request->password;
             $M_User->email = $request->email;
             $M_User->no_telp = $request->no_telp;

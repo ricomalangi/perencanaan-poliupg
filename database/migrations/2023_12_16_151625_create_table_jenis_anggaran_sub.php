@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('uuid_jenis_anggaran');
             $table->string('nama_sub_anggaran');
             $table->string('satuan_anggaran');
-            $table->string('harga_max');
-            $table->string('harga_min');
-            $table->string('jam');
-            $table->string('luasan');
+            $table->string('harga_max')->nullable();
+            $table->string('harga_min')->nullable();
+            $table->string('jam')->nullable();
+            $table->string('luasan')->nullable();
             $table->timestamps();
         });
     }

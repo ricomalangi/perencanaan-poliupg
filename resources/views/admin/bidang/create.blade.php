@@ -9,7 +9,7 @@
       <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('admin.bidang') }}">Bidang</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.data_bidang') }}">Bidang</a></li>
             <li class="breadcrumb-item active">Create</li>
           </ol>
         </div>
@@ -20,7 +20,7 @@
   <div class="container-fluid">
       <div class="card">
           <div class="card-body">
-            <form action="{{ route('admin.bidang.add') }}" method="POST">
+            <form action="{{ route('admin.data_bidang.add') }}" method="POST">
               @csrf
               <div class="form-group">
                 <label class="form-label">Bidang</label>

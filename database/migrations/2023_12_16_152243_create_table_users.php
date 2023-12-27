@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('uuid');
             $table->string('uuid_unit_kerja');
             $table->string('nama_user');
-            $table->string('username');
             $table->string('password');
             $table->string('email');
             $table->string('no_telp', 15);

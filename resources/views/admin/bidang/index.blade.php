@@ -19,7 +19,7 @@
   <div class="container-fluid">
       <div class="card">
           <div class="card-body">
-              <a href="{{ route('admin.bidang.create') }}" class="btn btn-md btn-primary"><i class="fas fa-plus"></i> Tambah Bidang</a>
+              <a href="{{ route('admin.data_bidang.create') }}" class="btn btn-md btn-primary"><i class="fas fa-plus"></i> Tambah Bidang</a>
               <table class="table mt-3">
                   <thead>
                       <tr>
@@ -53,7 +53,7 @@
             {{$nama_bidang->links('templates.components.pagination')}}
           </div>
         </div>
-        <form action="{{ route('admin.bidang.delete') }}" method="POST">
+        <form action="{{ route('admin.data_bidang.delete') }}" method="POST">
           @method('DELETE')
           @csrf
           <div class="modal fade" id="modal-delete" tabindex="-1" aria-hidden="true">
@@ -77,7 +77,7 @@
               </div>
           </div>
         </form>
-        <form action="{{ route('admin.bidang.update') }}" method="POST">
+        <form action="{{ route('admin.data_bidang.update') }}" method="POST">
           @method('PUT')
           @csrf
           <div class="modal fade" id="modal-edit" tabindex="-1" aria-hidden="true">
