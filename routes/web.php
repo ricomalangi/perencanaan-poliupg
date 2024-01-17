@@ -71,3 +71,10 @@ Route::post('/admin/iku/doAdd', 'App\Http\Controllers\IkuController@doAdd')->nam
 Route::get('/admin/iku/get', 'App\Http\Controllers\IkuController@get')->name('admin.iku.GetData');
 Route::post('/admin/iku/update', 'App\Http\Controllers\IkuController@update')->name('admin.iku.update');
 Route::post('/admin/iku/delete', 'App\Http\Controllers\IkuController@delete')->name('admin.iku.delete');
+
+// satuan
+Route::get('/admin/satuan', 'App\Http\Controllers\SatuanController@index')->name('admin.satuan');
+Route::get('/admin/satuan/create', 'App\Http\Controllers\SatuanController@create')->name('admin.satuan.create');
+Route::post('/admin/satuan', 'App\Http\Controllers\SatuanController@add')->name('admin.satuan.add');
+Route::put('/admin/satuan', 'App\Http\Controllers\SatuanController@update')->name('admin.satuan.update');
+Route::delete('/admin/satuan', 'App\Http\Controllers\SatuanController@delete')->name('admin.satuan.delete');

@@ -36,6 +36,7 @@
                         Request::routeIs('admin.data_bidang*') ||
                         Request::routeIs('admin.bidang_anggaran*') ||
                         Request::routeIs('UnitKerja*') ||
+                        Request::routeIs('admin.satuan*') ||
                         Request::routeIs('admin.iku*') ? 'active menu-open' : ''
                     }}">
                     <a href="#" class="nav-link
@@ -45,6 +46,7 @@
                             Request::routeIs('admin.data_bidang*') ||
                             Request::routeIs('admin.bidang_anggaran*') ||
                             Request::routeIs('UnitKerja*') ||
+                            Request::routeIs('admin.satuan*') ||
                             Request::routeIs('admin.iku*') ? 'active' : ''
                         }}
                     ">
@@ -83,6 +85,12 @@
                             <a href="{{route('admin.iku')}}" class="nav-link {{ Request::routeIs('admin.iku*') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Iku</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.satuan')}}" class="nav-link {{ Request::routeIs('admin.satuan*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Satuan</p>
                             </a>
                         </li>
                     </ul>
