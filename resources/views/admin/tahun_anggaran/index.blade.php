@@ -1,55 +1,49 @@
 @extends('../templates/main')
 @section('content')
 <section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h4>Tahun Anggaran</h4>
-        </div>
-        <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-              <li class="breadcrumb-item active">Tahun Anggaran</li>
+    <div class="pagetitle">
+        <h1>Tahun Anggaran</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item active">Tahun Anggaran</li>
             </ol>
-          </div>
-      </div>
-    </div><!-- /.container-fluid -->
+        </nav>
+    </div>
 </section>
 <section class="content">
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-body">
-                <a href="{{route('admin.tahun_anggaran.create')}}" class="btn btn-md btn-primary add-data"><i class="fas fa-plus"></i> Tambah Data</a>
-                <table class="table mt-3">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Tahun Anggaran</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @php
-                            $no = 1;
-                        @endphp
-                        @foreach ($tahun_anggaran as $item)
-                            <tr class="tahun-anggaran-row">
-                                <td>{{$no++}}</td>
-                                <td>{{$item->nama_tahun_anggaran}}</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning btn-md btn-edit" data-uuid="{{$item->uuid}}" data-tahun="{{$item->nama_tahun_anggaran}}">Edit</button>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer clearfix">
-                {{$tahun_anggaran->links('templates.components.pagination')}}
-            </div>
-          </div>
+    <div class="card">
+        <div class="card-body">
+            <!-- <h5 class="card-title">Default Table</h5> -->
+            <a href="{{route('admin.tahun_anggaran.create')}}" class="mt-4 btn btn-md btn-primary add-data"><i class="fas fa-plus"></i> Tambah Data</a>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Tahun Anggaran</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @php
+                    $no = 1;
+                    @endphp
+                    @foreach ($tahun_anggaran as $item)
+                    <tr class="tahun-anggaran-row">
+                        <td scope="row">{{$no++}}</td>
+                        <td>{{$item->nama_tahun_anggaran}}</td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-md btn-edit" data-uuid="{{$item->uuid}}" data-tahun="{{$item->nama_tahun_anggaran}}">Edit</button>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            {{$tahun_anggaran->links('templates.components.pagination')}}
+        </div>
     </div>
+
 
     <form action="{{route('admin.tahun_anggaran.update')}}" method="POST">
         @method('PUT')
@@ -68,9 +62,8 @@
                         <label class="form-label">Tahun</label>
                         <select name="tahun" class="form-control" required>
                             <option value="" hidden>--pilih tahun--</option>
-                            @for ($i = 2019; $i < date('Y'); $i++)
-                                <option value="{{$i}}">{{$i}}</option>
-                            @endfor
+                            @for ($i = 2019; $i < date('Y'); $i++) <option value="{{$i}}">{{$i}}</option>
+                                @endfor
                         </select>
                     </div>
                     <div class="modal-footer">
@@ -84,15 +77,13 @@
 </section>
 @endsection
 @push('addon-js')
-    <script>
-        $('.btn-edit').on('click', function(e){
-            $('.modal').modal()
-            let uuid = $(this).data('uuid')
-            let tahun = $(this).data('tahun')
-            $('input[name="uuid"]').val(uuid)
-            $('select[name="tahun"]').val(tahun)
-        })
-
-    </script>
+<script>
+    $('.btn-edit').on('click', function(e) {
+        $('.modal').modal()
+        let uuid = $(this).data('uuid')
+        let tahun = $(this).data('tahun')
+        $('input[name="uuid"]').val(uuid)
+        $('select[name="tahun"]').val(tahun)
+    })
+</script>
 @endpush
-

@@ -12,7 +12,7 @@ class TahunAnggaranController extends Controller
     public function index()
     {
         try {
-            $data = TahunAnggaran::orderBy('id', 'desc')->paginate(5);
+            $data = TahunAnggaran::orderBy('id', 'desc')->paginate(2);
             $data = [
                 'tahun_anggaran' => $data
             ];
